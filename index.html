@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Portfolio of Aditya Sharma, a computer science student building machine learning, computer vision, Android privacy, and edge AI systems."
+    />
+    <title>Aditya Sharma | ML, Computer Vision, Android</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <div class="scroll-bg" aria-hidden="true"></div>
+    <svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="icon-user" viewBox="0 0 24 24">
+        <path d="M20 21a8 8 0 0 0-16 0" />
+        <circle cx="12" cy="7" r="4" />
+      </symbol>
+      <symbol id="icon-brain" viewBox="0 0 24 24">
+        <path d="M8 4.5a3 3 0 0 0-4 2.8 3.4 3.4 0 0 0 1 2.4 3.2 3.2 0 0 0-.7 2 3.4 3.4 0 0 0 3.4 3.4H8" />
+        <path d="M16 4.5a3 3 0 0 1 4 2.8 3.4 3.4 0 0 1-1 2.4 3.2 3.2 0 0 1 .7 2 3.4 3.4 0 0 1-3.4 3.4H16" />
+        <path d="M8 4.5V19a2 2 0 0 0 4 0V5.5" />
+        <path d="M16 4.5V19a2 2 0 0 1-4 0V5.5" />
+      </symbol>
+      <symbol id="icon-eye" viewBox="0 0 24 24">
+        <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z" />
+        <circle cx="12" cy="12" r="3" />
+      </symbol>
+      <symbol id="icon-shield" viewBox="0 0 24 24">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" />
+        <path d="m9 12 2 2 4-5" />
+      </symbol>
+      <symbol id="icon-server" viewBox="0 0 24 24">
+        <rect x="3" y="4" width="18" height="7" rx="2" />
+        <rect x="3" y="13" width="18" height="7" rx="2" />
+        <path d="M7 8h.01M7 17h.01" />
+      </symbol>
+      <symbol id="icon-route" viewBox="0 0 24 24">
+        <circle cx="6" cy="19" r="3" />
+        <circle cx="18" cy="5" r="3" />
+        <path d="M9 19h3a4 4 0 0 0 0-8h-1a4 4 0 0 1 0-8h4" />
+      </symbol>
+      <symbol id="icon-code" viewBox="0 0 24 24">
+        <path d="m16 18 6-6-6-6" />
+        <path d="m8 6-6 6 6 6" />
+      </symbol>
+      <symbol id="icon-database" viewBox="0 0 24 24">
+        <ellipse cx="12" cy="5" rx="8" ry="3" />
+        <path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5" />
+        <path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6" />
+      </symbol>
+      <symbol id="icon-award" viewBox="0 0 24 24">
+        <circle cx="12" cy="8" r="5" />
+        <path d="M8.5 12.5 7 22l5-3 5 3-1.5-9.5" />
+      </symbol>
+      <symbol id="icon-file" viewBox="0 0 24 24">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" />
+        <path d="M14 2v6h6" />
+      </symbol>
+      <symbol id="icon-download" viewBox="0 0 24 24">
+        <path d="M12 3v12" />
+        <path d="m7 10 5 5 5-5" />
+        <path d="M5 21h14" />
+      </symbol>
+      <symbol id="icon-mail" viewBox="0 0 24 24">
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="m3 7 9 6 9-6" />
+      </symbol>
+      <symbol id="icon-phone" viewBox="0 0 24 24">
+        <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7A2 2 0 0 1 22 16.9Z" />
+      </symbol>
+      <symbol id="icon-github" viewBox="0 0 24 24">
+        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.4c3.5-.4 7-1.7 7-7A5.4 5.4 0 0 0 19.5 4 5 5 0 0 0 19.4.6S18.2.2 15.4 2a13.4 13.4 0 0 0-7 0C5.6.2 4.4.6 4.4.6A5 5 0 0 0 4.3 4 5.4 5.4 0 0 0 3 7.6c0 5.3 3.5 6.6 7 7a4.8 4.8 0 0 0-1 3.4v4" />
+        <path d="M9 18c-4.5 2-5-2-7-2" />
+      </symbol>
+      <symbol id="icon-linkedin" viewBox="0 0 24 24">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z" />
+        <rect x="2" y="9" width="4" height="12" />
+        <circle cx="4" cy="4" r="2" />
+      </symbol>
+      <symbol id="icon-graduation" viewBox="0 0 24 24">
+        <path d="m22 10-10-5-10 5 10 5 10-5Z" />
+        <path d="M6 12v5c3 2 9 2 12 0v-5" />
+      </symbol>
+      <symbol id="icon-target" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" />
+        <circle cx="12" cy="12" r="5" />
+        <circle cx="12" cy="12" r="1" />
+      </symbol>
+      <symbol id="icon-terminal" viewBox="0 0 24 24">
+        <path d="m4 17 6-5-6-5" />
+        <path d="M12 19h8" />
+      </symbol>
+      <symbol id="icon-layers" viewBox="0 0 24 24">
+        <path d="m12 2 10 5-10 5L2 7l10-5Z" />
+        <path d="m2 17 10 5 10-5" />
+        <path d="m2 12 10 5 10-5" />
+      </symbol>
+    </svg>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Aditya Sharma home">
+        <span class="brand-mark">AS</span>
+        <span>Aditya Sharma</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero section-band">
+        <div class="hero-content">
+          <p class="eyebrow">Computer Science and Engineering</p>
+          <h1>Machine learning, computer vision, and privacy-focused Android systems.</h1>
+          <p class="hero-copy">
+            I build applied AI projects across object detection, video analysis, edge deployment,
+            Android privacy tooling, and full-stack model integrations.
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button primary" href="#projects">
+              <svg class="icon" aria-hidden="true"><use href="#icon-layers"></use></svg>
+              View work
+            </a>
+            <a class="button secondary" href="./assets/resume/aditya-sharma-resume.pdf" download>
+              <svg class="icon" aria-hidden="true"><use href="#icon-download"></use></svg>
+              Download resume
+            </a>
+          </div>
+          <div class="quick-links" aria-label="Contact links">
+            <a href="mailto:adityasharma020911@gmail.com">adityasharma020911@gmail.com</a>
+            <a href="https://github.com/PHOENIX1854" target="_blank" rel="noreferrer">
+              github.com/PHOENIX1854
+            </a>
+            <a href="https://www.linkedin.com/in/adityasharma1854" target="_blank" rel="noreferrer">
+              linkedin.com/in/adityasharma1854
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visuals">
+          <figure class="photo-card">
+            <img src="./assets/images/aditya-sharma.jpeg" alt="Portrait of Aditya Sharma" />
+            <figcaption>
+              <span>
+                <svg class="icon" aria-hidden="true"><use href="#icon-user"></use></svg>
+                Aditya Sharma
+              </span>
+              <small>ML, Computer Vision, Android</small>
+            </figcaption>
+          </figure>
+
+          <figure class="resume-panel" aria-label="Resume preview">
+            <img src="./assets/images/resume-preview.png" alt="Preview of Aditya Sharma's resume" />
+            <figcaption>
+              <span>
+                <svg class="icon" aria-hidden="true"><use href="#icon-file"></use></svg>
+                Current resume
+              </span>
+              <a href="./assets/resume/aditya-sharma-resume.pdf" target="_blank" rel="noreferrer">
+                Open PDF
+              </a>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="about" class="section about-console">
+        <div class="section-heading">
+          <p class="eyebrow">About Me</p>
+          <h2>A resume-driven control panel for how I think, build, and ship.</h2>
+        </div>
+
+        <div class="profile-console">
+          <div class="key-deck" aria-label="Resume profile keys">
+            <button
+              class="profile-key is-active"
+              type="button"
+              data-profile-key="builder"
+              data-hotkey="1"
+              aria-pressed="true"
+            >
+              <span class="key-top">
+                <svg class="icon" aria-hidden="true"><use href="#icon-brain"></use></svg>
+                01
+              </span>
+              <span class="key-label">Builder</span>
+              <span class="key-detail">AI systems</span>
+            </button>
+            <button
+              class="profile-key"
+              type="button"
+              data-profile-key="vision"
+              data-hotkey="2"
+              aria-pressed="false"
+            >
+              <span class="key-top">
+                <svg class="icon" aria-hidden="true"><use href="#icon-eye"></use></svg>
+                02
+              </span>
+              <span class="key-label">Vision</span>
+              <span class="key-detail">YOLO + OpenCV</span>
+            </button>
+            <button
+              class="profile-key"
+              type="button"
+              data-profile-key="android"
+              data-hotkey="3"
+              aria-pressed="false"
+            >
+              <span class="key-top">
+                <svg class="icon" aria-hidden="true"><use href="#icon-shield"></use></svg>
+                03
+              </span>
+              <span class="key-label">Android</span>
+              <span class="key-detail">PrivacyLens</span>
+            </button>
+            <button
+              class="profile-key"
+              type="button"
+              data-profile-key="edge"
+              data-hotkey="4"
+              aria-pressed="false"
+            >
+              <span class="key-top">
+                <svg class="icon" aria-hidden="true"><use href="#icon-server"></use></svg>
+                04
+              </span>
+              <span class="key-label">Edge</span>
+              <span class="key-detail">Raspberry Pi</span>
+            </button>
+            <button
+              class="profile-key"
+              type="button"
+              data-profile-key="research"
+              data-hotkey="5"
+              aria-pressed="false"
+            >
+              <span class="key-top">
+                <svg class="icon" aria-hidden="true"><use href="#icon-route"></use></svg>
+                05
+              </span>
+              <span class="key-label">Research</span>
+              <span class="key-detail">Traffic AI</span>
+            </button>
+            <button
+              class="profile-key"
+              type="button"
+              data-profile-key="proof"
+              data-hotkey="6"
+              aria-pressed="false"
+            >
+              <span class="key-top">
+                <svg class="icon" aria-hidden="true"><use href="#icon-award"></use></svg>
+                06
+              </span>
+              <span class="key-label">Proof</span>
+              <span class="key-detail">Patent + DSA</span>
+            </button>
+          </div>
+
+          <article class="identity-panel" aria-live="polite">
+            <div class="panel-header">
+              <div class="profile-chip">
+                <img src="./assets/images/aditya-sharma.jpeg" alt="" />
+                <div>
+                  <p class="panel-label">Profile Signal</p>
+                  <strong>Aditya Sharma</strong>
+                  <small>VIT CSE | 2022 - 2026</small>
+                </div>
+              </div>
+              <span id="profile-code" class="panel-code">AS-ML-01</span>
+            </div>
+            <h3 id="profile-title">Applied AI builder</h3>
+            <p id="profile-copy">
+              I am a Computer Science and Engineering student at VIT University building practical
+              AI systems that move from model training to deployed software: detection pipelines,
+              Android privacy tools, real-time video systems, and edge-device workflows.
+            </p>
+
+            <div class="panel-stats">
+              <div>
+                <span id="profile-focus">ML + CV</span>
+                <small>Focus</small>
+              </div>
+              <div>
+                <span id="profile-stack">PyTorch, YOLO, Flask</span>
+                <small>Stack</small>
+              </div>
+              <div>
+                <span id="profile-output">Deployed projects</span>
+                <small>Output</small>
+              </div>
+            </div>
+
+            <div class="panel-depth" aria-label="Detailed resume notes">
+              <article>
+                <svg class="icon" aria-hidden="true"><use href="#icon-graduation"></use></svg>
+                <div>
+                  <h4 id="profile-detail-one-title">Education foundation</h4>
+                  <p id="profile-detail-one-copy">
+                    B.Tech in Computer Science and Engineering at VIT University, Chennai, with a
+                    project-heavy path across AI, Android, and full-stack systems.
+                  </p>
+                </div>
+              </article>
+              <article>
+                <svg class="icon" aria-hidden="true"><use href="#icon-target"></use></svg>
+                <div>
+                  <h4 id="profile-detail-two-title">Build pattern</h4>
+                  <p id="profile-detail-two-copy">
+                    I connect models to usable interfaces, databases, APIs, streams, reports, and
+                    deployment targets instead of stopping at notebook results.
+                  </p>
+                </div>
+              </article>
+              <article>
+                <svg class="icon" aria-hidden="true"><use href="#icon-terminal"></use></svg>
+                <div>
+                  <h4 id="profile-detail-three-title">Working style</h4>
+                  <p id="profile-detail-three-copy">
+                    Comfortable with Git, Linux, Docker, cloud tooling, Jupyter, VS Code, PyCharm,
+                    and IntelliJ while managing end-to-end project workflows.
+                  </p>
+                </div>
+              </article>
+            </div>
+
+            <div class="signal-board" aria-label="Resume highlights">
+              <span id="signal-one">YOLOv8/v11</span>
+              <span id="signal-two">OpenCV</span>
+              <span id="signal-three">REST APIs</span>
+              <span id="signal-four">Raspberry Pi</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="metrics section-band" aria-label="Portfolio highlights">
+        <article>
+          <svg class="icon metric-icon" aria-hidden="true"><use href="#icon-brain"></use></svg>
+          <span class="metric-value">6+</span>
+          <span class="metric-label">ML and CV projects</span>
+        </article>
+        <article>
+          <svg class="icon metric-icon" aria-hidden="true"><use href="#icon-eye"></use></svg>
+          <span class="metric-value">YOLOv8/11</span>
+          <span class="metric-label">Detection pipelines</span>
+        </article>
+        <article>
+          <svg class="icon metric-icon" aria-hidden="true"><use href="#icon-server"></use></svg>
+          <span class="metric-value">Edge AI</span>
+          <span class="metric-label">Raspberry Pi deployment</span>
+        </article>
+        <article>
+          <svg class="icon metric-icon" aria-hidden="true"><use href="#icon-award"></use></svg>
+          <span class="metric-value">250+</span>
+          <span class="metric-label">DSA problems solved</span>
+        </article>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Selected Work</p>
+          <h2>Projects built around practical AI and privacy.</h2>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card featured">
+            <div class="project-header">
+              <span class="project-icon">
+                <svg class="icon" aria-hidden="true"><use href="#icon-shield"></use></svg>
+              </span>
+              <p class="project-kicker">Android privacy</p>
+              <h3>PrivacyLens</h3>
+            </div>
+            <p>
+              Offline Android privacy analyzer that inspects installed apps, separates granted
+              permissions from requested-only permissions, and explains risk in plain language.
+            </p>
+            <ul class="project-points">
+              <li>Built local risk scoring, permission categories, and trusted-app ignore flows.</li>
+              <li>Integrated direct Android settings access for safer permission review.</li>
+              <li>Designed complete offline processing with zero data collection.</li>
+            </ul>
+            <div class="tag-list" aria-label="Technologies">
+              <span>Kotlin</span>
+              <span>Jetpack Compose</span>
+              <span>DataStore</span>
+              <span>Room</span>
+            </div>
+          </article>
+
+          <article class="project-card featured">
+            <div class="project-header">
+              <span class="project-icon">
+                <svg class="icon" aria-hidden="true"><use href="#icon-eye"></use></svg>
+              </span>
+              <p class="project-kicker">Computer vision</p>
+              <h3>Vehicle Accident Detection</h3>
+            </div>
+            <p>
+              Real-time traffic surveillance system using YOLOv11 to detect accidents and trigger
+              emergency-response workflows for smart-city infrastructure.
+            </p>
+            <ul class="project-points">
+              <li>Trained on a custom traffic video dataset for accident detection.</li>
+              <li>Designed inference for live and recorded traffic footage.</li>
+              <li>Filed patent application 202541054843 for the emergency response system.</li>
+            </ul>
+            <div class="tag-list" aria-label="Technologies">
+              <span>PyTorch</span>
+              <span>YOLOv11</span>
+              <span>OpenCV</span>
+              <span>Python</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <span class="project-icon">
+                <svg class="icon" aria-hidden="true"><use href="#icon-route"></use></svg>
+              </span>
+              <p class="project-kicker">Simulation</p>
+              <h3>Multi-City GIS ITS Simulator</h3>
+            </div>
+            <p>
+              GIS-grounded autonomous traffic control simulator using real OpenStreetMap road
+              networks, comparing No-RL, DQN-based RL, and shared-policy MARL controllers with
+              RSU-assisted V2I communication.
+            </p>
+            <div class="tag-list" aria-label="Technologies">
+              <span>Python</span>
+              <span>OSMnx</span>
+              <span>Gymnasium</span>
+              <span>Stable-Baselines3</span>
+              <span>DQN</span>
+              <span>MARL</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <span class="project-icon">
+                <svg class="icon" aria-hidden="true"><use href="#icon-server"></use></svg>
+              </span>
+              <p class="project-kicker">Edge deployment</p>
+              <h3>Airplane Detection on Raspberry Pi</h3>
+            </div>
+            <p>
+              YOLOv8n airplane detector trained on a custom dataset, then deployed through a
+              Flask MJPEG stream with MySQL logging and automated Excel reporting.
+            </p>
+            <div class="tag-list" aria-label="Technologies">
+              <span>YOLOv8</span>
+              <span>Flask</span>
+              <span>Raspberry Pi</span>
+              <span>MySQL</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <span class="project-icon">
+                <svg class="icon" aria-hidden="true"><use href="#icon-user"></use></svg>
+              </span>
+              <p class="project-kicker">Assistive AI</p>
+              <h3>ASL-to-Speech Translator</h3>
+            </div>
+            <p>
+              Real-time American Sign Language recognition with MediaPipe landmarks, a Random
+              Forest classifier achieving 98% accuracy, Amazon Polly speech, and chatbot
+              integration.
+            </p>
+            <div class="tag-list" aria-label="Technologies">
+              <span>MediaPipe</span>
+              <span>OpenCV</span>
+              <span>Scikit-learn</span>
+              <span>Amazon Polly</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <span class="project-icon">
+                <svg class="icon" aria-hidden="true"><use href="#icon-layers"></use></svg>
+              </span>
+              <p class="project-kicker">Browser AI</p>
+              <h3>AI-Generated Video Detection Extension</h3>
+            </div>
+            <p>
+              Chrome extension and Flask backend that samples video frames, runs CLIP embeddings,
+              displays confidence scores through a browser overlay, and supports CPU/GPU
+              auto-detection.
+            </p>
+            <div class="tag-list" aria-label="Technologies">
+              <span>PyTorch</span>
+              <span>Flask</span>
+              <span>CLIP</span>
+              <span>Chrome Extension</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="experience" class="section section-muted">
+        <div class="section-heading">
+          <p class="eyebrow">Experience</p>
+          <h2>Hands-on development across model pipelines and app delivery.</h2>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-date">2024 - Present</div>
+            <div class="timeline-body">
+              <h3>Machine Learning and Computer Vision Developer</h3>
+              <p class="meta">Personal Projects and Research | Remote</p>
+              <ul>
+                <li>
+                  Developed and deployed computer vision and machine learning applications using
+                  PyTorch, YOLOv8/v11, OpenCV, and Flask.
+                </li>
+                <li>
+                  Built deep learning pipelines for object detection, video analysis, and
+                  edge-device deployment on Raspberry Pi.
+                </li>
+                <li>
+                  Integrated AI models with REST APIs, databases, and real-time video streaming
+                  systems.
+                </li>
+                <li>
+                  Worked extensively with Git and remote-first development workflows while managing
+                  end-to-end software projects.
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-date">2025 - Present</div>
+            <div class="timeline-body">
+              <h3>Android Application Developer</h3>
+              <p class="meta">Independent Development | Remote</p>
+              <ul>
+                <li>
+                  Developed PrivacyLens, an offline Android privacy analyzer for installed app
+                  inspection and permission-risk explanation.
+                </li>
+                <li>
+                  Implemented local risk scoring, trusted-app workflows, permission categorization,
+                  and direct Android settings integration.
+                </li>
+                <li>
+                  Designed the app around complete offline processing to protect user privacy.
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Technical Skills</p>
+          <h2>Tools I use to build, ship, and evaluate software systems.</h2>
+        </div>
+
+        <div class="skills-grid">
+          <article>
+            <svg class="icon card-icon" aria-hidden="true"><use href="#icon-code"></use></svg>
+            <h3>Languages</h3>
+            <p>Java, Python, Kotlin, C/C++, SQL, JavaScript, HTML/CSS, R</p>
+          </article>
+          <article>
+            <svg class="icon card-icon" aria-hidden="true"><use href="#icon-layers"></use></svg>
+            <h3>Frameworks</h3>
+            <p>React, Node.js, Flask, FastAPI, Jetpack Compose, REST APIs, Next.js</p>
+          </article>
+          <article>
+            <svg class="icon card-icon" aria-hidden="true"><use href="#icon-brain"></use></svg>
+            <h3>Machine Learning</h3>
+            <p>PyTorch, YOLOv8, YOLOv11, OpenCV, MediaPipe, Scikit-learn, CLIP, Stable-Baselines3</p>
+          </article>
+          <article>
+            <svg class="icon card-icon" aria-hidden="true"><use href="#icon-terminal"></use></svg>
+            <h3>Developer Tools</h3>
+            <p>
+              Git, Docker, Linux, Google Cloud Platform, Raspberry Pi, Jupyter Notebook, VS Code,
+              PyCharm, IntelliJ
+            </p>
+          </article>
+          <article>
+            <svg class="icon card-icon" aria-hidden="true"><use href="#icon-database"></use></svg>
+            <h3>Databases</h3>
+            <p>MySQL, SQLite, Room, DataStore</p>
+          </article>
+          <article>
+            <svg class="icon card-icon" aria-hidden="true"><use href="#icon-server"></use></svg>
+            <h3>Libraries</h3>
+            <p>pandas, NumPy, Matplotlib, OSMnx, Gymnasium</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section split-section">
+        <div>
+          <div class="section-heading compact">
+            <p class="eyebrow">Education</p>
+            <h2>VIT University</h2>
+          </div>
+          <p class="body-large">
+            Bachelor of Technology in Computer Science and Engineering, Chennai, Tamil Nadu.
+          </p>
+          <p class="meta">Sep. 2022 - May 2026</p>
+
+          <div class="education-note">
+            <h3>DPS Ranipur Haridwar BHEL Uttarakhand</h3>
+            <p>Class XII and Class X | Graduated May 2022</p>
+          </div>
+        </div>
+
+        <div class="stack-list">
+          <article>
+            <svg class="icon card-icon" aria-hidden="true"><use href="#icon-award"></use></svg>
+            <p class="eyebrow">Patent</p>
+            <h3>Real-Time Vehicle Accident Detection System</h3>
+            <p>
+              Patent pending, Application No. 202541054843, for an AI-powered emergency response
+              system using YOLOv11 for real-time accident detection from traffic surveillance
+              footage.
+            </p>
+          </article>
+          <article>
+            <svg class="icon card-icon" aria-hidden="true"><use href="#icon-target"></use></svg>
+            <p class="eyebrow">Achievements</p>
+            <h3>Applied problem solving</h3>
+            <p>
+              Solved 250+ Data Structures and Algorithms problems on LeetCode with multiple
+              monthly coding badges, qualified for the Smart India Hackathon internal selection
+              round, and built end-to-end ML and Computer Vision projects involving YOLO and Edge AI.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-muted">
+        <div class="section-heading">
+          <p class="eyebrow">Certifications</p>
+          <h2>Additional coursework and credentials.</h2>
+        </div>
+        <div class="cert-list">
+          <article>
+            <svg class="icon card-icon" aria-hidden="true"><use href="#icon-brain"></use></svg>
+            Generative AI Using IBM Watsonx - IBM Developer Skills Network
+          </article>
+          <article>
+            <svg class="icon card-icon" aria-hidden="true"><use href="#icon-database"></use></svg>
+            Databases and SQL for Data Science with Python - Coursera / IBM
+          </article>
+          <article>
+            <svg class="icon card-icon" aria-hidden="true"><use href="#icon-shield"></use></svg>
+            Ethical Hacking Essentials (EHE) - EC-Council
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="contact-section">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Open to applied AI, computer vision, Android, and full-stack engineering work.</h2>
+        </div>
+        <div class="contact-actions">
+          <a class="button primary" href="mailto:adityasharma020911@gmail.com">
+            <svg class="icon" aria-hidden="true"><use href="#icon-mail"></use></svg>
+            Email me
+          </a>
+          <a class="button secondary" href="tel:+918864928665">
+            <svg class="icon" aria-hidden="true"><use href="#icon-phone"></use></svg>
+            Call
+          </a>
+          <a class="button secondary" href="https://github.com/PHOENIX1854" target="_blank" rel="noreferrer">
+            <svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>
+            GitHub
+          </a>
+          <a
+            class="button secondary"
+            href="https://www.linkedin.com/in/adityasharma1854"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <svg class="icon" aria-hidden="true"><use href="#icon-linkedin"></use></svg>
+            LinkedIn
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Aditya Sharma</span>
+      <span>Machine Learning | Computer Vision | Android</span>
+    </footer>
+  </body>
+</html>
