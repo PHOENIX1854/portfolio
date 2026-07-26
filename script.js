@@ -127,7 +127,7 @@ const profileData = {
     focus: "Validated work",
     stack: "Patent, DSA, certs",
     output: "End-to-end builds",
-    signals: ["Patent 202541054843", "250+ DSA", "SIH", "IBM Watsonx"],
+    signals: ["Patent 202541054843", "500+ DSA", "SIH", "IBM Watsonx"],
     details: [
       [
         "Patent pending",
