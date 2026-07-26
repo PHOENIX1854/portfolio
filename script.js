@@ -123,7 +123,7 @@ const profileData = {
     code: "AS-PROOF-06",
     title: "Evidence on the board",
     copy:
-      "The resume has proof points behind the claims: a patent-pending accident detection system, 250+ LeetCode problems, SIH internal selection, IBM and EC-Council certifications, and multiple shipped end-to-end AI projects.",
+      "The resume has proof points behind the claims: a patent-pending accident detection system, 500+ LeetCode problems, SIH internal selection, IBM and EC-Council certifications, and multiple shipped end-to-end AI projects.",
     focus: "Validated work",
     stack: "Patent, DSA, certs",
     output: "End-to-end builds",
@@ -135,7 +135,7 @@ const profileData = {
       ],
       [
         "Problem solving",
-        "Solved 250+ Data Structures and Algorithms problems on LeetCode and earned multiple monthly coding badges.",
+        "Solved 500+ Data Structures and Algorithms problems on LeetCode and earned multiple monthly coding badges.",
       ],
       [
         "Certifications",
