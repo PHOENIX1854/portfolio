@@ -123,14 +123,14 @@ const profileData = {
     code: "AS-PROOF-06",
     title: "Evidence on the board",
     copy:
-      "Patent Pending (Indian Patent Application No. 202541054843): Designed an AI-powered autonomous rescue robot using computer vision, LiDAR, GPS, adaptive multi-terrain locomotion, robotic manipulation, and swarm intelligence for autonomous search, navigation, obstacle clearance, and rescue operations.",
+      "Patent Publish (Indian Patent Application No. 202541054843): Designed an AI-powered autonomous rescue robot using computer vision, LiDAR, GPS, adaptive multi-terrain locomotion, robotic manipulation, and swarm intelligence for autonomous search, navigation, obstacle clearance, and rescue operations.",
     focus: "Validated work",
     stack: "Patent, DSA, certs",
     output: "End-to-end builds",
-    signals: ["Patent Pending", "500+ DSA problems", "SIH", "IBM Watsonx"],
+    signals: ["Patent Publish", "500+ DSA problems", "SIH", "IBM Watsonx"],
     details: [
       [
-        "Patent pending",
+        "Patent publish",
         "Filed Indian Patent Application No. 202541054843 for the Rescue Operation System, an AI-powered autonomous rescue robot using computer vision, LiDAR, GPS, thermal imaging, SLAM, reinforcement learning, and swarm coordination for adaptive search-and-rescue operations.",
       ],
       [
@@ -260,11 +260,11 @@ const projectDetail = {
       "Filed Indian Patent Application No. 202541054843 for the Rescue Operation System, an autonomous rescue and surveillance platform with modular tools, secure mesh communication, and SWARM coordination.",
     ],
     patent: {
-      status: "🟢 Patent Pending (Application Awaiting Examination)",
+      status: "🟢 Patent Publish (Application Awaiting Examination)",
       application: "Indian Patent Application No. 202541054843",
       title: "Rescue Operation System",
       description: "Embodiments of the disclosure describe an autonomous rescue and surveillance platform with modular robotic tools, AI-driven navigation, LIDAR, GPS, thermal imaging, stereo vision, sensor fusion, adaptive locomotion, robotic manipulation, secure mesh communication, and SWARM coordination for rescue missions.",
-      timeline: "Filed: 6 June 2025 · Published: 13 June 2025 · Current Status: Patent Pending – Application Awaiting Examination",
+      timeline: "Filed: 6 June 2025 · Published: 13 June 2025 · Current Status: Patent Publish – Application Awaiting Examination",
     },
   },
   multiCityGisItsSimulator: {
