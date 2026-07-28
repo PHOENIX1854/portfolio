@@ -127,7 +127,7 @@ const profileData = {
     focus: "Validated work",
     stack: "Patent, DSA, certs",
     output: "End-to-end builds",
-    signals: ["Patent Pending", "500+ DSA", "SIH", "IBM Watsonx"],
+    signals: ["Patent Pending", "500+ DSA problems", "SIH", "IBM Watsonx"],
     details: [
       [
         "Patent pending",
@@ -135,7 +135,7 @@ const profileData = {
       ],
       [
         "Problem solving",
-        "Solved 500+ Data Structures and Algorithms problems on LeetCode and earned multiple monthly coding badges.",
+        "Solved 500+ DSA problems on LeetCode and earned multiple monthly coding badges.",
       ],
       [
         "Certifications",
@@ -234,6 +234,149 @@ document.addEventListener("keydown", (event) => {
 
   setProfile(key.dataset.profileKey);
   pulseKey(key);
+});
+const projectDetail = {
+  privacyLens: {
+    kicker: "Android privacy",
+    title: "PrivacyLens",
+    copy: "Offline Android privacy analyzer for installed app permissions with clear local risk scoring, trusted-app flows, and zero data collection.",
+    overview: "PrivacyLens is an offline Android application that inspects installed apps, separates granted permissions from requested-only permissions, and presents risk explanations in plain language.",
+    technologies: ["Kotlin", "Jetpack Compose", "Room", "DataStore", "Android Permissions"],
+    highlights: [
+      "Built local risk scoring, permission categories, and trusted-app ignore flows.",
+      "Integrated direct Android settings access for safer permission review.",
+      "Designed complete offline processing with zero data collection.",
+    ],
+  },
+  vehicleAccidentDetection: {
+    kicker: "Computer vision",
+    title: "Vehicle Accident Detection",
+    copy: "A real-time YOLOv11 traffic surveillance system that detects accidents and triggers emergency-response workflows for smart-city infrastructure.",
+    overview: "This project processes live and recorded traffic footage with YOLOv11 to identify accidents, support rapid incident detection, and inform emergency response in urban traffic environments.",
+    technologies: ["PyTorch", "YOLOv11", "OpenCV", "Python", "Computer Vision"],
+    highlights: [
+      "Trained on a custom traffic video dataset for accident detection.",
+      "Designed inference for live and recorded traffic footage.",
+      "Filed Indian Patent Application No. 202541054843 for the Rescue Operation System, an autonomous rescue and surveillance platform with modular tools, secure mesh communication, and SWARM coordination.",
+    ],
+    patent: {
+      status: "🟢 Patent Pending (Application Awaiting Examination)",
+      application: "Indian Patent Application No. 202541054843",
+      title: "Rescue Operation System",
+      description: "Embodiments of the disclosure describe an autonomous rescue and surveillance platform with modular robotic tools, AI-driven navigation, LIDAR, GPS, thermal imaging, stereo vision, sensor fusion, adaptive locomotion, robotic manipulation, secure mesh communication, and SWARM coordination for rescue missions.",
+      timeline: "Filed: 6 June 2025 · Published: 13 June 2025 · Current Status: Patent Pending – Application Awaiting Examination",
+    },
+  },
+  multiCityGisItsSimulator: {
+    kicker: "Simulation",
+    title: "Multi-City GIS ITS Simulator",
+    copy: "GIS-grounded traffic control simulator comparing No-RL, DQN, and MARL controllers on real OpenStreetMap networks.",
+    overview: "The simulator uses real GIS road networks to evaluate autonomous traffic control strategies, including reinforcement learning and shared-policy multi-agent approaches under latency and dropout conditions.",
+    technologies: ["Python", "OSMnx", "Gymnasium", "Stable-Baselines3", "DQN", "MARL"],
+    highlights: [
+      "Built a GIS-grounded autonomous traffic control simulator on real OpenStreetMap networks.",
+      "Compared No-RL, DQN-based RL, and shared-policy MARL controllers.",
+      "Modeled RSU-assisted V2I communication with latency and dropout conditions.",
+    ],
+  },
+  airplaneDetectionOnRaspberryPi: {
+    kicker: "Edge deployment",
+    title: "Airplane Detection on Raspberry Pi",
+    copy: "Real-time YOLOv8n airplane detector deployed on Raspberry Pi with Flask MJPEG streaming and MySQL event logging.",
+    overview: "This edge AI deployment moves a trained YOLOv8n airplane detector onto Raspberry Pi hardware, streams MJPEG video, logs detections in MySQL, and generates automated reports.",
+    technologies: ["YOLOv8", "Flask", "Raspberry Pi", "MySQL", "MJPEG Streaming"],
+    highlights: [
+      "Deployed a YOLOv8n airplane detector to Raspberry Pi.",
+      "Built Flask-based MJPEG video streaming and automated Excel reporting.",
+      "Logged inference events to MySQL for searchable detection records.",
+    ],
+  },
+  aslToSpeechTranslator: {
+    kicker: "Assistive AI",
+    title: "ASL-to-Speech Translator",
+    copy: "Real-time ASL recognition using MediaPipe, a Random Forest classifier, Amazon Polly speech, and chatbot integration.",
+    overview: "The ASL-to-Speech Translator converts American Sign Language gestures into spoken output with high accuracy and integrated feedback.",
+    technologies: ["MediaPipe", "OpenCV", "Scikit-learn", "Amazon Polly", "Chatbot Integration"],
+    highlights: [
+      "Built a real-time ASL recognition system with MediaPipe landmarks.",
+      "Achieved 98% classifier accuracy using a Random Forest model.",
+      "Converted recognized gestures to speech using Amazon Polly.",
+    ],
+  },
+  aiGeneratedVideoDetectionExtension: {
+    kicker: "Browser AI",
+    title: "AI-Generated Video Detection Extension",
+    copy: "Browser extension and Flask backend that samples video frames, runs CLIP embeddings, and surfaces confidence scores in a browser overlay.",
+    overview: "This project detects AI-generated video content with a Chrome extension and backend service, using CLIP embeddings and a responsive UI overlay for real-time scoring.",
+    technologies: ["PyTorch", "Flask", "CLIP", "Chrome Extension", "Web Overlay"],
+    highlights: [
+      "Engineered a Chrome extension and Flask backend for AI-generated video detection.",
+      "Sampled frames and computed CLIP embeddings for confidence scoring.",
+      "Automatic CPU/GPU detection supports flexible deployment.",
+    ],
+  },
+};
+
+const projectCards = Array.from(document.querySelectorAll(".project-card[data-project-key]"));
+const detailPanel = document.querySelector("#project-detail-panel");
+const detailKicker = document.querySelector("#detail-kicker");
+const detailTitle = document.querySelector("#detail-title");
+const detailCopy = document.querySelector("#detail-copy");
+const detailOverview = document.querySelector("#detail-overview");
+const detailTech = document.querySelector("#detail-tech");
+const detailHighlights = document.querySelector("#detail-highlights");
+const detailPatent = document.querySelector("#detail-patent");
+const detailPatentStatus = document.querySelector("#detail-patent-status");
+const detailPatentApplication = document.querySelector("#detail-patent-application");
+const detailPatentTitle = document.querySelector("#detail-patent-title");
+const detailPatentDescription = document.querySelector("#detail-patent-description");
+const detailPatentTimeline = document.querySelector("#detail-patent-timeline");
+
+function showProjectDetail(projectKey) {
+  const project = projectDetail[projectKey];
+  if (!project || !detailPanel) {
+    return;
+  }
+
+  detailPanel.classList.remove("hidden");
+  detailKicker.textContent = project.kicker;
+  detailTitle.textContent = project.title;
+  detailCopy.textContent = project.copy;
+  detailOverview.textContent = project.overview;
+  detailTech.innerHTML = project.technologies.map((tech) => `<span>${tech}</span>`).join("");
+  detailHighlights.innerHTML = project.highlights.map((item) => `<li>${item}</li>`).join("");
+
+  if (project.patent) {
+    detailPatent.classList.remove("hidden");
+    detailPatentStatus.textContent = project.patent.status;
+    detailPatentApplication.textContent = project.patent.application;
+    detailPatentTitle.textContent = project.patent.title;
+    detailPatentDescription.textContent = project.patent.description;
+    detailPatentTimeline.textContent = project.patent.timeline;
+  } else {
+    detailPatent.classList.add("hidden");
+    detailPatentStatus.textContent = "";
+    detailPatentApplication.textContent = "";
+    detailPatentTitle.textContent = "";
+    detailPatentDescription.textContent = "";
+    detailPatentTimeline.textContent = "";
+  }
+
+  projectCards.forEach((card) => {
+    card.classList.toggle("is-selected", card.dataset.projectKey === projectKey);
+  });
+
+  detailPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+projectCards.forEach((card) => {
+  card.addEventListener("click", () => showProjectDetail(card.dataset.projectKey));
+  card.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      showProjectDetail(card.dataset.projectKey);
+    }
+  });
 });
 
 const palettes = [

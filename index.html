@@ -368,7 +368,7 @@
         </article>
         <article>
           <svg class="icon metric-icon" aria-hidden="true"><use href="#icon-award"></use></svg>
-          <span class="metric-value">250+</span>
+          <span class="metric-value">500+</span>
           <span class="metric-label">DSA problems solved</span>
         </article>
       </section>
@@ -380,7 +380,7 @@
         </div>
 
         <div class="project-grid">
-          <article class="project-card featured">
+          <article class="project-card featured" data-project-key="privacyLens" role="button" tabindex="0">
             <div class="project-header">
               <span class="project-icon">
                 <svg class="icon" aria-hidden="true"><use href="#icon-shield"></use></svg>
@@ -405,7 +405,7 @@
             </div>
           </article>
 
-          <article class="project-card featured">
+          <article class="project-card featured" data-project-key="vehicleAccidentDetection" role="button" tabindex="0">
             <div class="project-header">
               <span class="project-icon">
                 <svg class="icon" aria-hidden="true"><use href="#icon-eye"></use></svg>
@@ -420,7 +420,7 @@
             <ul class="project-points">
               <li>Trained on a custom traffic video dataset for accident detection.</li>
               <li>Designed inference for live and recorded traffic footage.</li>
-              <li>Filed Indian Patent Application No. 202541054843 for the Rescue Operation System.</li>
+              <li>Filed Indian Patent Application No. 202541054843 for the Rescue Operation System, an autonomous AI rescue and surveillance platform with modular tools, sensor fusion, and swarm coordination.</li>
             </ul>
             <div class="tag-list" aria-label="Technologies">
               <span>PyTorch</span>
@@ -430,7 +430,7 @@
             </div>
           </article>
 
-          <article class="project-card">
+          <article class="project-card" data-project-key="multiCityGisItsSimulator" role="button" tabindex="0">
             <div class="project-header">
               <span class="project-icon">
                 <svg class="icon" aria-hidden="true"><use href="#icon-route"></use></svg>
@@ -453,7 +453,7 @@
             </div>
           </article>
 
-          <article class="project-card">
+          <article class="project-card" data-project-key="airplaneDetectionOnRaspberryPi" role="button" tabindex="0">
             <div class="project-header">
               <span class="project-icon">
                 <svg class="icon" aria-hidden="true"><use href="#icon-server"></use></svg>
@@ -473,7 +473,7 @@
             </div>
           </article>
 
-          <article class="project-card">
+          <article class="project-card" data-project-key="aslToSpeechTranslator" role="button" tabindex="0">
             <div class="project-header">
               <span class="project-icon">
                 <svg class="icon" aria-hidden="true"><use href="#icon-user"></use></svg>
@@ -494,7 +494,7 @@
             </div>
           </article>
 
-          <article class="project-card">
+          <article class="project-card" data-project-key="aiGeneratedVideoDetectionExtension" role="button" tabindex="0">
             <div class="project-header">
               <span class="project-icon">
                 <svg class="icon" aria-hidden="true"><use href="#icon-layers"></use></svg>
@@ -515,6 +515,41 @@
             </div>
           </article>
         </div>
+
+        <article class="project-detail-panel hidden" aria-live="polite" id="project-detail-panel">
+          <div class="project-header">
+            <span class="project-icon" aria-hidden="true">
+              <svg class="icon"><use href="#icon-layers"></use></svg>
+            </span>
+            <p class="project-kicker" id="detail-kicker">Project details</p>
+            <h3 id="detail-title">Select a project to view details</h3>
+          </div>
+          <p id="detail-copy" class="project-copy">
+            Click any project card above to reveal the full summary, technologies, highlights, and patent or research notes for that project.
+          </p>
+          <div class="detail-grid">
+            <div class="detail-block">
+              <h4>Overview</h4>
+              <p id="detail-overview">Project details will appear here when a project is selected.</p>
+            </div>
+            <div class="detail-block">
+              <h4>Technologies</h4>
+              <div id="detail-tech" class="tag-list"></div>
+            </div>
+            <div class="detail-block">
+              <h4>Key highlights</h4>
+              <ul id="detail-highlights" class="project-points"></ul>
+            </div>
+            <div id="detail-patent" class="detail-block hidden">
+              <h4>Patent details</h4>
+              <p id="detail-patent-status"></p>
+              <p id="detail-patent-application"></p>
+              <p id="detail-patent-title"></p>
+              <p id="detail-patent-description"></p>
+              <p id="detail-patent-timeline"></p>
+            </div>
+          </div>
+        </article>
       </section>
 
       <section id="experience" class="section section-muted">
@@ -639,7 +674,7 @@
             <p class="eyebrow">Patent</p>
             <h3>Rescue Operation System</h3>
             <p>
-              🟢 Patent Pending (Application Awaiting Examination) — Indian Patent Application No. 202541054843 for an AI-powered autonomous rescue robot that uses computer vision, LiDAR, GPS, thermal imaging, stereo vision, sensor fusion, and swarm robotics to support intelligent search-and-rescue operations with adaptive terrain navigation and robotic obstacle clearance.
+              🟢 Patent Pending (Application Awaiting Examination) — Indian Patent Application No. 202541054843 for an autonomous rescue and surveillance system that combines modular robotic tools, AI-driven navigation, LiDAR, GPS, thermal imaging, stereo vision, sensor fusion, adaptive terrain locomotion, secure mesh communication, and SWARM coordination.
             </p>
           </article>
           <article>
@@ -647,9 +682,9 @@
             <p class="eyebrow">Achievements</p>
             <h3>Applied problem solving</h3>
             <p>
-              Solved 500+ Data Structures and Algorithms problems on LeetCode with multiple
-              monthly coding badges, qualified for the Smart India Hackathon internal selection
-              round, and built end-to-end ML and Computer Vision projects involving YOLO and Edge AI.
+              Solved 500+ DSA problems on LeetCode with multiple monthly coding badges,
+              qualified for the Smart India Hackathon internal selection round, and built
+              end-to-end ML and Computer Vision projects involving YOLO and Edge AI.
             </p>
           </article>
         </div>
