@@ -455,3 +455,173 @@ function requestScrollTheme() {
 updateScrollTheme();
 window.addEventListener("scroll", requestScrollTheme, { passive: true });
 window.addEventListener("resize", requestScrollTheme);
+
+const terminalScreen = document.querySelector("#terminal-screen");
+const terminalForm = document.querySelector("#terminal-form");
+const terminalInput = document.querySelector("#terminal-input");
+
+const terminalPrompt = "aditya@portfolio:~$";
+
+const terminalHelpers = [
+  ["help", "Show this help message"],
+  ["about", "Who I am and what I build"],
+  ["whoami", "Print profile identity"],
+  ["projects", "List selected projects"],
+  ["skills", "Show the technical stack"],
+  ["education", "Academic background"],
+  ["contact", "Ways to reach me"],
+  ["resume", "Open the resume PDF"],
+  ["clear", "Clear the terminal"],
+];
+
+const terminalBanner = [
+  "Aditya Sharma — Applied AI builder",
+  "-----------------------------------",
+  "ML + CV  ·  Android privacy  ·  Edge AI",
+  "Type 'help' to list available commands.",
+];
+
+function terminalPrint(text, className) {
+  const line = document.createElement("div");
+  line.className = `terminal-line${className ? ` ${className}` : ""}`;
+  line.textContent = text;
+  terminalScreen.appendChild(line);
+  terminalScreen.scrollTop = terminalScreen.scrollHeight;
+}
+
+function terminalPrintLines(lines, className, delay = 30) {
+  lines.forEach((line, index) => {
+    window.setTimeout(() => terminalPrint(line, className), index * delay);
+  });
+}
+
+function terminalRunCommand(raw) {
+  const trimmed = raw.trim();
+  terminalPrint(`${terminalPrompt} ${raw}`, "command");
+
+  if (!trimmed) {
+    return;
+  }
+
+  const [command, ...args] = trimmed.split(/\s+/);
+  const argument = args.join(" ");
+
+  switch (command) {
+    case "help":
+      terminalPrintLines([
+        "Command           Description",
+        "-------------------------------",
+        ...terminalHelpers.map(([name, description]) => `${name.padEnd(18)}${description}`),
+      ]);
+      break;
+    case "about":
+      terminalPrintLines([
+        "I'm Aditya Sharma, a Computer Science and Engineering student at VIT University",
+        "building practical AI systems: detection pipelines, Android privacy tools,",
+        "real-time video systems, and edge-device workflows. I connect models to",
+        "usable interfaces instead of stopping at notebook results.",
+      ]);
+      break;
+    case "whoami":
+      terminalPrintLines(
+        ["AS-ML-01 · Applied AI builder", "VIT CSE · 2022 - 2026 · Remote / Chennai, India"],
+        "output",
+        60
+      );
+      break;
+    case "projects":
+      terminalPrintLines(
+        [
+          "Selected projects:",
+          "  · PrivacyLens — offline Android permission-risk analyzer (Kotlin, Compose)",
+          "  · Vehicle Accident Detection — YOLOv11 traffic surveillance + alerts",
+          "  · Multi-City GIS ITS Simulator — DQN/MARL control on OSM road networks",
+          "  · Airplane Detection on Raspberry Pi — YOLOv8n + Flask MJPEG + MySQL",
+          "  · ASL-to-Speech — MediaPipe + 98% Random Forest classifier + Amazon Polly",
+          "  · AI-Generated Video Detection — CLIP embeddings in a Chrome extension",
+        ],
+        "output",
+        50
+      );
+      break;
+    case "skills":
+      terminalPrintLines(
+        [
+          "Languages:  Java, Python, Kotlin, C/C++, SQL, JavaScript, HTML/CSS, R",
+          "Frameworks: React, Node.js, Flask, FastAPI, Jetpack Compose, Next.js",
+          "ML / CV:    PyTorch, YOLOv8/v11, OpenCV, MediaPipe, Scikit-learn, CLIP",
+          "Edge:       Raspberry Pi, Docker, Linux, Google Cloud Platform",
+          "Databases:  MySQL, SQLite, Room, DataStore",
+        ],
+        "output"
+      );
+      break;
+    case "education":
+      terminalPrintLines(
+        [
+          "B.Tech Computer Science and Engineering",
+          "VIT University, Chennai · Sep 2022 - May 2026",
+          "DPS Ranipur Haridwar, BHEL Uttarakhand · Class X and XII (May 2022)",
+        ],
+        "output"
+      );
+      break;
+    case "contact":
+      terminalPrintLines(
+        [
+          `Email:    adityasharma020911@gmail.com`,
+          "Phone:    +91 8864928665",
+          "GitHub:   https://github.com/PHOENIX1854",
+          "LinkedIn: https://www.linkedin.com/in/adityasharma1854",
+          "LeetCode: https://leetcode.com/u/enlightenedmind1854/",
+        ],
+        "output"
+      );
+      break;
+    case "resume":
+      terminalPrint("Opening resume PDF…", "accent");
+      window.open("./assets/resume/aditya-sharma-resume.pdf", "_blank");
+      break;
+    case "echo":
+      terminalPrint(argument, "output");
+      break;
+    case "clear":
+      terminalScreen.innerHTML = "";
+      break;
+    default:
+      terminalPrint(
+        `command not found: ${command} — type 'help' to see available commands.`,
+        "error"
+      );
+  }
+}
+
+let terminalHistory = [];
+let terminalHistoryIndex = -1;
+
+terminalForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const raw = terminalInput.value;
+  terminalInput.value = "";
+  if (raw.trim()) {
+    terminalHistory.push(raw);
+    terminalHistoryIndex = terminalHistory.length;
+  }
+  terminalRunCommand(raw);
+});
+
+terminalInput.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowUp") {
+    event.preventDefault();
+    terminalHistoryIndex = Math.max(-1, terminalHistoryIndex - 1);
+    terminalInput.value = terminalHistory[terminalHistoryIndex] ?? "";
+  } else if (event.key === "ArrowDown") {
+    event.preventDefault();
+    terminalHistoryIndex = Math.min(terminalHistory.length, terminalHistoryIndex + 1);
+    terminalInput.value = terminalHistory[terminalHistoryIndex] ?? "";
+  }
+});
+
+terminalScreen.addEventListener("click", () => terminalInput.focus());
+
+terminalPrintLines(terminalBanner, "output", 80);

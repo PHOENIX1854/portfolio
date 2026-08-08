@@ -350,6 +350,40 @@
         </div>
       </section>
 
+      <section class="section terminal-section">
+        <div class="section-heading">
+          <p class="eyebrow">Info Terminal</p>
+          <h2>Ask the terminal anything — it answers from my resume.</h2>
+        </div>
+
+        <div class="terminal" role="log" aria-label="Interactive info terminal">
+          <div class="terminal-bar" aria-hidden="true">
+            <span class="terminal-light terminal-light-red"></span>
+            <span class="terminal-light terminal-light-yellow"></span>
+            <span class="terminal-light terminal-light-green"></span>
+            <span class="terminal-title">aditya@portfolio: ~</span>
+          </div>
+          <div class="terminal-screen" id="terminal-screen"></div>
+          <form class="terminal-input-row" id="terminal-form">
+            <span class="terminal-prompt" aria-hidden="true">aditya@portfolio:~$</span>
+            <input
+              class="terminal-input"
+              id="terminal-input"
+              type="text"
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="false"
+              placeholder="type a command…"
+              aria-label="Terminal command"
+            />
+          </form>
+        </div>
+        <p class="terminal-hint">
+          Try <code>help</code>, <code>projects</code>, <code>skills</code>, <code>contact</code> —
+          press ↑/↓ for history.
+        </p>
+      </section>
+
       <section class="metrics section-band" aria-label="Portfolio highlights">
         <article>
           <svg class="icon metric-icon" aria-hidden="true"><use href="#icon-brain"></use></svg>
