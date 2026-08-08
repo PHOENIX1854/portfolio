@@ -471,6 +471,7 @@ const terminalHelpers = [
   ["education", "Academic background"],
   ["contact", "Ways to reach me"],
   ["resume", "Open the resume PDF"],
+  ["patent", "Show my filed patent info"],
   ["clear", "Clear the terminal"],
 ];
 
@@ -581,6 +582,33 @@ function terminalRunCommand(raw) {
     case "resume":
       terminalPrint("Opening resume PDF…", "accent");
       window.open("./assets/resume/aditya-sharma-resume.pdf", "_blank");
+      break;
+    case "patent":
+      terminalPrintLines(
+        [
+          "Patent: System (100) & Method (300) for Executing a Rescue Operation",
+          "Type:  Utility patent — autonomous surveillance & rescue robot",
+          "",
+          "Abstract:",
+          "  Modular autonomous robot for surveillance and rescue missions with",
+          "  interchangeable tools (robotic arms, cutting devices, breaching",
+          "  mechanisms). AI-driven navigation using LIDAR, GPS, thermal imaging,",
+          "  and stereo cameras for real-time obstacle detection. SWARM",
+          "  coordination lets multiple robots collaborate, with secure mesh",
+          "  communication and rugged chassis for extended, GPS-denied ops.",
+          "",
+          "Highlights:",
+          "  · Tri-mode locomotion (wheeled/tracked/legged) via CNN+SVM terrain analysis",
+          "  · Transformer + RNN object detection on multi-spectral data",
+          "  · Temporal fusion transformer + CNN for obstacle detection",
+          "  · Imitation-learning robotic arm for obstacle elimination",
+          "  · GNN/MARL swarm coordination; PPO/DQN task prioritization",
+          "  · SLAM 3D mapping; LSTM trajectory prediction; NLG mission reports",
+          "  · GPR + EM array demining; failsafe power management (10-20 Ah)",
+        ],
+        "output",
+        40
+      );
       break;
     case "echo":
       terminalPrint(argument, "output");
