@@ -466,6 +466,7 @@ const terminalHelpers = [
   ["help", "Show this help message"],
   ["about", "Who I am and what I build"],
   ["whoami", "Print profile identity"],
+  ["follow", "My social profiles"],
   ["projects", "List selected projects"],
   ["skills", "Show the technical stack"],
   ["education", "Academic background"],
@@ -528,6 +529,18 @@ function terminalRunCommand(raw) {
         ["AS-ML-01 · Applied AI builder", "VIT CSE · 2022 - 2026 · Remote / Chennai, India"],
         "output",
         60
+      );
+      break;
+    case "follow":
+      terminalPrintLines(
+        [
+          "GitHub:   https://github.com/PHOENIX1854",
+          "LinkedIn: https://www.linkedin.com/in/adityasharma1854",
+          "LeetCode: https://leetcode.com/u/enlightenedmind1854/",
+          "Email:    adityasharma020911@gmail.com",
+        ],
+        "output",
+        50
       );
       break;
     case "projects":
