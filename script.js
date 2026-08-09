@@ -315,6 +315,20 @@ const projectDetail = {
       "Automatic CPU/GPU detection supports flexible deployment.",
     ],
   },
+  quadraticEquationSolver: {
+    kicker: "Web tool",
+    title: "Quadratic Equation Solver",
+    copy: "Live quadratic equation solver with real-time roots, discriminant, vertex, and full step-by-step working.",
+    overview: "A free, no sign-up quadratic equation solver that returns the roots, discriminant, factored form, vertex, and axis of symmetry the moment you type a, b and c — with an interactive parabola graph redrawn on every keystroke and support for real, repeated, and complex roots.",
+    technologies: ["TypeScript", "Quadratic Formula", "Discriminant", "Canvas", "i18n"],
+    url: "https://quadraticequationsolver.com/",
+    highlights: [
+      "Solves on every keystroke — roots, discriminant, vertex, factored form, and step-by-step working.",
+      "Interactive parabola graph with vertex and roots marked, zoom, scroll, and pinch support.",
+      "Handles real, repeated, and complex conjugate roots to six significant figures.",
+      "Localized into 40+ languages with no sign-up and no tracking.",
+    ],
+  },
 };
 
 const projectCards = Array.from(document.querySelectorAll(".project-card[data-project-key]"));
@@ -322,6 +336,7 @@ const detailPanel = document.querySelector("#project-detail-panel");
 const detailKicker = document.querySelector("#detail-kicker");
 const detailTitle = document.querySelector("#detail-title");
 const detailCopy = document.querySelector("#detail-copy");
+const detailUrl = document.querySelector("#detail-url");
 const detailOverview = document.querySelector("#detail-overview");
 const detailTech = document.querySelector("#detail-tech");
 const detailHighlights = document.querySelector("#detail-highlights");
@@ -345,6 +360,14 @@ function showProjectDetail(projectKey) {
   detailOverview.textContent = project.overview;
   detailTech.innerHTML = project.technologies.map((tech) => `<span>${tech}</span>`).join("");
   detailHighlights.innerHTML = project.highlights.map((item) => `<li>${item}</li>`).join("");
+
+  if (project.url && detailUrl) {
+    detailUrl.classList.remove("hidden");
+    detailUrl.setAttribute("href", project.url);
+  } else if (detailUrl) {
+    detailUrl.classList.add("hidden");
+    detailUrl.removeAttribute("href");
+  }
 
   if (project.patent) {
     detailPatent.classList.remove("hidden");
@@ -379,82 +402,59 @@ projectCards.forEach((card) => {
   });
 });
 
-const palettes = [
-  {
-    at: 0,
-    a: [23, 107, 91],
-    b: [189, 76, 59],
-    c: [184, 135, 45],
-  },
-  {
-    at: 0.28,
-    a: [41, 92, 158],
-    b: [21, 143, 119],
-    c: [189, 76, 59],
-  },
-  {
-    at: 0.55,
-    a: [118, 76, 154],
-    b: [29, 116, 131],
-    c: [199, 126, 57],
-  },
-  {
-    at: 0.78,
-    a: [166, 75, 67],
-    b: [32, 121, 101],
-    c: [67, 88, 139],
-  },
-  {
-    at: 1,
-    a: [19, 79, 68],
-    b: [176, 86, 43],
-    c: [73, 93, 143],
-  },
-];
-
-function mixChannel(start, end, amount) {
-  return Math.round(start + (end - start) * amount);
-}
-
-function mixColor(start, end, amount) {
-  return start.map((channel, index) => mixChannel(channel, end[index], amount));
-}
-
-function setColorVariable(name, value) {
-  document.documentElement.style.setProperty(name, value.join(", "));
-}
-
-function updateScrollTheme() {
+function updateScrollProgress() {
   const scrollable = document.documentElement.scrollHeight - window.innerHeight;
   const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
-  const clamped = Math.min(1, Math.max(0, progress));
-  const nextIndex = palettes.findIndex((palette) => palette.at >= clamped);
-  const upper = palettes[nextIndex === -1 ? palettes.length - 1 : nextIndex];
-  const lower = palettes[Math.max(0, palettes.indexOf(upper) - 1)];
-  const span = upper.at - lower.at || 1;
-  const localProgress = (clamped - lower.at) / span;
-
-  setColorVariable("--reactive-a", mixColor(lower.a, upper.a, localProgress));
-  setColorVariable("--reactive-b", mixColor(lower.b, upper.b, localProgress));
-  setColorVariable("--reactive-c", mixColor(lower.c, upper.c, localProgress));
-  document.documentElement.style.setProperty("--scroll-progress", clamped.toFixed(3));
+  document.documentElement.style.setProperty(
+    "--scroll-progress",
+    Math.min(1, Math.max(0, progress)).toFixed(3)
+  );
 }
 
 let scrollFrame = null;
-function requestScrollTheme() {
+function requestScrollProgress() {
   if (scrollFrame) {
     return;
   }
 
   scrollFrame = window.requestAnimationFrame(() => {
-    updateScrollTheme();
+    updateScrollProgress();
     scrollFrame = null;
   });
 }
 
-updateScrollTheme();
-window.addEventListener("scroll", requestScrollTheme, { passive: true });
-window.addEventListener("resize", requestScrollTheme);
+updateScrollProgress();
+window.addEventListener("scroll", requestScrollProgress, { passive: true });
+window.addEventListener("resize", requestScrollProgress);
+
+const themeToggle = document.querySelector("#theme-toggle");
+const themeMeta = document.querySelector('meta[name="theme-color"]');
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  if (themeToggle) {
+    themeToggle.setAttribute(
+      "aria-label",
+      theme === "dark" ? "Switch to light theme" : "Switch to dark theme"
+    );
+  }
+  if (themeMeta) {
+    themeMeta.setAttribute("content", theme === "dark" ? "#000000" : "#fafafa");
+  }
+}
+
+applyTheme(document.documentElement.getAttribute("data-theme") || "light");
+
+themeToggle?.addEventListener("click", () => {
+  const current = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+  const next = current === "dark" ? "light" : "dark";
+  applyTheme(next);
+  try {
+    localStorage.setItem("theme", next);
+  } catch (error) {
+    // storage unavailable — theme still applies for this session
+  }
+});
 
 const terminalScreen = document.querySelector("#terminal-screen");
 const terminalForm = document.querySelector("#terminal-form");
@@ -472,6 +472,7 @@ const terminalHelpers = [
   ["education", "Academic background"],
   ["contact", "Ways to reach me"],
   ["resume", "Open the resume PDF"],
+  ["solver", "Open the quadratic equation solver"],
   ["patent", "Show my filed patent info"],
   ["clear", "Clear the terminal"],
 ];
@@ -553,6 +554,7 @@ function terminalRunCommand(raw) {
           "  · Airplane Detection on Raspberry Pi — YOLOv8n + Flask MJPEG + MySQL",
           "  · ASL-to-Speech — MediaPipe + 98% Random Forest classifier + Amazon Polly",
           "  · AI-Generated Video Detection — CLIP embeddings in a Chrome extension",
+          "  · Quadratic Equation Solver — live solver, steps and graph (TypeScript)",
         ],
         "output",
         50
@@ -561,7 +563,7 @@ function terminalRunCommand(raw) {
     case "skills":
       terminalPrintLines(
         [
-          "Languages:  Java, Python, Kotlin, C/C++, SQL, JavaScript, HTML/CSS, R",
+          "Languages:  Java, Python, Kotlin, TypeScript, C/C++, SQL, JavaScript, HTML/CSS, R",
           "Frameworks: React, Node.js, Flask, FastAPI, Jetpack Compose, Next.js",
           "ML / CV:    PyTorch, YOLOv8/v11, OpenCV, MediaPipe, Scikit-learn, CLIP",
           "Edge:       Raspberry Pi, Docker, Linux, Google Cloud Platform",
@@ -595,6 +597,10 @@ function terminalRunCommand(raw) {
     case "resume":
       terminalPrint("Opening resume PDF…", "accent");
       window.open("./assets/resume/aditya-sharma-resume.pdf", "_blank");
+      break;
+    case "solver":
+      terminalPrint("Opening quadratic equation solver…", "accent");
+      window.open("https://quadraticequationsolver.com/", "_blank");
       break;
     case "patent":
       terminalPrintLines(

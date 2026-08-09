@@ -7,17 +7,34 @@
       name="description"
       content="Portfolio of Aditya Sharma, a computer science student building machine learning, computer vision, Android privacy, and edge AI systems."
     />
+    <meta name="theme-color" content="#fafafa" />
     <title>Aditya Sharma | ML, Computer Vision, Android</title>
+    <script>
+      (function () {
+        try {
+          var theme = localStorage.getItem("theme");
+          if (!theme) {
+            theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+          }
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (error) {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
     <script src="./script.js" defer></script>
   </head>
   <body>
+    <a class="skip-link" href="#top">Skip to content</a>
     <div class="scroll-bg" aria-hidden="true"></div>
     <svg class="icon-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <symbol id="icon-user" viewBox="0 0 24 24">
@@ -104,6 +121,21 @@
         <path d="m2 17 10 5 10-5" />
         <path d="m2 12 10 5 10-5" />
       </symbol>
+      <symbol id="icon-sun" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+      </symbol>
+      <symbol id="icon-moon" viewBox="0 0 24 24">
+        <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z" />
+      </symbol>
+      <symbol id="icon-function" viewBox="0 0 24 24">
+        <path d="M18 7V4H6l6 8-6 8h12v-3" />
+      </symbol>
+      <symbol id="icon-external" viewBox="0 0 24 24">
+        <path d="M15 3h6v6" />
+        <path d="M10 14 21 3" />
+        <path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5" />
+      </symbol>
     </svg>
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Aditya Sharma home">
@@ -116,7 +148,19 @@
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
+        <a class="nav-cta" href="./assets/resume/aditya-sharma-resume.pdf" download>
+          Resume
+        </a>
       </nav>
+      <button
+        class="theme-toggle"
+        id="theme-toggle"
+        type="button"
+        aria-label="Switch to light theme"
+      >
+        <svg class="icon icon-sun" aria-hidden="true"><use href="#icon-sun"></use></svg>
+        <svg class="icon icon-moon" aria-hidden="true"><use href="#icon-moon"></use></svg>
+      </button>
     </header>
 
     <main id="top">
@@ -149,12 +193,25 @@
             <a href="https://leetcode.com/u/enlightenedmind1854/" target="_blank" rel="noreferrer">
               LeetCode 
             </a>
+            <a
+              href="https://quadraticequationsolver.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Quadratic Equation Solver
+            </a>
           </div>
         </div>
 
         <div class="hero-visuals">
           <figure class="photo-card">
-            <img src="./assets/images/aditya-sharma.jpeg" alt="Portrait of Aditya Sharma" />
+            <img
+              src="./assets/images/aditya-sharma.jpeg"
+              alt="Portrait of Aditya Sharma"
+              width="640"
+              height="696"
+              fetchpriority="high"
+            />
             <figcaption>
               <span>
                 <svg class="icon" aria-hidden="true"><use href="#icon-user"></use></svg>
@@ -165,7 +222,13 @@
           </figure>
 
           <figure class="resume-panel" aria-label="Resume preview">
-            <img src="./assets/images/resume-preview.png" alt="Preview of Aditya Sharma's resume" />
+            <img
+              src="./assets/images/resume-preview.png"
+              alt="Preview of Aditya Sharma's resume"
+              width="640"
+              height="360"
+              loading="lazy"
+            />
             <figcaption>
               <span>
                 <svg class="icon" aria-hidden="true"><use href="#icon-file"></use></svg>
@@ -548,6 +611,26 @@
               <span>Chrome Extension</span>
             </div>
           </article>
+
+          <article class="project-card" data-project-key="quadraticEquationSolver" role="button" tabindex="0">
+            <div class="project-header">
+              <span class="project-icon">
+                <svg class="icon" aria-hidden="true"><use href="#icon-function"></use></svg>
+              </span>
+              <p class="project-kicker">Web tool</p>
+              <h3>Quadratic Equation Solver</h3>
+            </div>
+            <p>
+              Live quadratic equation solver that returns roots, discriminant, factored form,
+              vertex, and full step-by-step working the instant you type a, b and c — with an
+              interactive parabola graph.
+            </p>
+            <div class="tag-list" aria-label="Technologies">
+              <span>TypeScript</span>
+              <span>Canvas graph</span>
+              <span>40+ languages</span>
+            </div>
+          </article>
         </div>
 
         <article class="project-detail-panel hidden" aria-live="polite" id="project-detail-panel">
@@ -561,6 +644,16 @@
           <p id="detail-copy" class="project-copy">
             Click any project card above to reveal the full summary, technologies, highlights, and patent or research notes for that project.
           </p>
+          <a
+            id="detail-url"
+            class="detail-live-link hidden"
+            href="#"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <svg class="icon" aria-hidden="true"><use href="#icon-external"></use></svg>
+            Visit live site
+          </a>
           <div class="detail-grid">
             <div class="detail-block">
               <h4>Overview</h4>
@@ -652,7 +745,7 @@
           <article>
             <svg class="icon card-icon" aria-hidden="true"><use href="#icon-code"></use></svg>
             <h3>Languages</h3>
-            <p>Java, Python, Kotlin, C/C++, SQL, JavaScript, HTML/CSS, R</p>
+            <p>Java, Python, Kotlin, TypeScript, C/C++, SQL, JavaScript, HTML/CSS, R</p>
           </article>
           <article>
             <svg class="icon card-icon" aria-hidden="true"><use href="#icon-layers"></use></svg>
