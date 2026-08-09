@@ -456,13 +456,7 @@ applyTheme(document.documentElement.getAttribute("data-theme") || "light");
 
 themeToggle?.addEventListener("click", () => {
   const current = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
-  const next = current === "dark" ? "light" : "dark";
-  applyTheme(next);
-  try {
-    localStorage.setItem("theme", next);
-  } catch (error) {
-    // storage unavailable — theme still applies for this session
-  }
+  applyTheme(current === "dark" ? "light" : "dark");
 });
 
 const terminalScreen = document.querySelector("#terminal-screen");
