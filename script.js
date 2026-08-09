@@ -403,12 +403,21 @@ projectCards.forEach((card) => {
 });
 
 function updateScrollProgress() {
-  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const root = document.documentElement;
+  const scrollable = root.scrollHeight - window.innerHeight;
   const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
-  document.documentElement.style.setProperty(
-    "--scroll-progress",
-    Math.min(1, Math.max(0, progress)).toFixed(3)
-  );
+  root.style.setProperty("--scroll-progress", Math.min(1, Math.max(0, progress)).toFixed(3));
+
+  let meshOpacity = 1;
+  const projects = document.querySelector("#projects");
+  if (projects && scrollable > 0) {
+    const fadeStart = projects.offsetTop - window.innerHeight;
+    const fadeEnd = projects.offsetTop;
+    const fadeSpan = fadeEnd - fadeStart || 1;
+    meshOpacity = 1 - (window.scrollY - fadeStart) / fadeSpan;
+    meshOpacity = Math.min(1, Math.max(0, meshOpacity));
+  }
+  root.style.setProperty("--mesh-opacity", meshOpacity.toFixed(3));
 }
 
 let scrollFrame = null;
