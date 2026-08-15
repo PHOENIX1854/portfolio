@@ -459,6 +459,41 @@ themeToggle?.addEventListener("click", () => {
   applyTheme(current === "dark" ? "light" : "dark");
 });
 
+const menuToggle = document.querySelector("#menu-toggle");
+const mobileMenu = document.querySelector("#mobile-menu");
+
+function toggleMobileMenu() {
+  const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+  const newState = !isExpanded;
+
+  menuToggle.setAttribute("aria-expanded", String(newState));
+  mobileMenu.classList.toggle("is-open", newState);
+
+  if (newState) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "";
+  }
+}
+
+menuToggle?.addEventListener("click", toggleMobileMenu);
+
+if (mobileMenu) {
+  mobileMenu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (menuToggle.getAttribute("aria-expanded") === "true") {
+        toggleMobileMenu();
+      }
+    });
+  });
+}
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && menuToggle && menuToggle.getAttribute("aria-expanded") === "true") {
+    toggleMobileMenu();
+  }
+});
+
 const terminalScreen = document.querySelector("#terminal-screen");
 const terminalForm = document.querySelector("#terminal-form");
 const terminalInput = document.querySelector("#terminal-input");

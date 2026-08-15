@@ -124,6 +124,12 @@
         <path d="M10 14 21 3" />
         <path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5" />
       </symbol>
+      <symbol id="icon-menu" viewBox="0 0 24 24">
+        <path d="M3 6h18M3 12h18M3 18h18" />
+      </symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24">
+        <path d="M18 6L6 18M6 6l12 12" />
+      </symbol>
     </svg>
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Aditya Sharma home">
@@ -155,7 +161,35 @@
         <svg class="icon icon-sun" aria-hidden="true"><use href="#icon-sun"></use></svg>
         <svg class="icon icon-moon" aria-hidden="true"><use href="#icon-moon"></use></svg>
       </button>
+      <button
+        class="menu-toggle"
+        id="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        aria-controls="mobile-menu"
+      >
+        <svg class="icon icon-menu" aria-hidden="true"><use href="#icon-menu"></use></svg>
+        <svg class="icon icon-close" aria-hidden="true"><use href="#icon-close"></use></svg>
+      </button>
     </header>
+
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+      <a
+        class="nav-cta"
+        href="./assets/resume/aditya-sharma-resume.pdf"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Resume
+      </a>
+    </nav>
 
     <main id="top">
       <section class="hero section-band">
