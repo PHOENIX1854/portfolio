@@ -139,7 +139,7 @@ const profileData = {
       ],
       [
         "Certifications",
-        "Completed Generative AI Using IBM Watsonx, Databases and SQL for Data Science with Python, and Ethical Hacking Essentials.",
+        "Completed Generative AI Using IBM Watsonx (CEWXAI1IN, IBM Developer Skills Network), Databases and SQL for Data Science with Python (Coursera/IBM), and Ethical Hacking Essentials (EC-Council).",
       ],
     ],
   },
@@ -477,6 +477,7 @@ const terminalHelpers = [
   ["resume", "Open the resume PDF"],
   ["solver", "Open the quadratic equation solver"],
   ["patent", "Show my filed patent info"],
+  ["certifications", "List earned certifications"],
   ["clear", "Clear the terminal"],
 ];
 
@@ -627,6 +628,26 @@ function terminalRunCommand(raw) {
           "  · GNN/MARL swarm coordination; PPO/DQN task prioritization",
           "  · SLAM 3D mapping; LSTM trajectory prediction; NLG mission reports",
           "  · GPR + EM array demining; failsafe power management (10-20 Ah)",
+        ],
+        "output",
+        40
+      );
+      break;
+    case "certifications":
+      terminalPrintLines(
+        [
+          "Certifications:",
+          "  · Generative AI Using IBM Watsonx — IBM Developer Skills Network",
+          "    Credential: courses.adroitprolearn.skillsnetwork.site/certificates/350f109d1244467c90471eb87e5813ea",
+          "    Issued: Jun 15, 2025",
+          "",
+          "  · Databases and SQL for Data Science with Python — Coursera / IBM",
+          "    Credential: www.coursera.org/verify/8ZSD6VQ9RFZT",
+          "    Issued: Sep 16, 2024",
+          "",
+          "  · Ethical Hacking Essentials (EHE) — Coursera / EC-Council",
+          "    Credential: www.coursera.org/verify/ENXD08JGM4Q6",
+          "    Issued: Apr 10, 2025",
         ],
         "output",
         40
