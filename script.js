@@ -139,7 +139,7 @@ const profileData = {
       ],
       [
         "Certifications",
-        "Completed Generative AI using IBM Watsonx, IBM SQL/Data Science coursework, and EC-Council Ethical Hacking Essentials.",
+        "Completed Generative AI Using IBM Watsonx, Databases and SQL for Data Science with Python, and Ethical Hacking Essentials.",
       ],
     ],
   },
