@@ -468,12 +468,6 @@ function toggleMobileMenu() {
 
   menuToggle.setAttribute("aria-expanded", String(newState));
   mobileMenu.classList.toggle("is-open", newState);
-
-  if (newState) {
-    document.body.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "";
-  }
 }
 
 menuToggle?.addEventListener("click", toggleMobileMenu);
